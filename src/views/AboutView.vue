@@ -5,9 +5,6 @@
 </template>
 
 <style>
-* {
-  font-size: 2.9rem;
-}
 @media (min-width: 1024px) {
   .about {
     min-height: 100vh;
