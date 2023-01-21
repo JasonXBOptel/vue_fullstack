@@ -1,3 +1,5 @@
 <template lang="">
-  <p>SUB COMPONENT TEXT</p>
+  <div>
+    <p>SUB COMPONENT TEXT</p>
+  </div>
 </template>
