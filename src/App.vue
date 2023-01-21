@@ -4,13 +4,11 @@ import { RouterLink, RouterView } from "vue-router";
 </script>
 
 <template>
+  <!-- <p>DK Customs</p> -->
   <RouterView />
 </template>
 
 <style>
-h1 {
-  color: red;
-}
 header {
   line-height: 1.5;
   max-height: 100vh;
