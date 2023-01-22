@@ -1,23 +1,23 @@
 <script setup>
-import { ref } from "vue";
+import { ref, unref } from "vue";
 // Declare Initial State Value
-let countState = ref(10);
+let inputRef = ref("");
 // Create function that manipulates state value
-let double = function () {
-  countState.value = countState.value * 2;
-};
-let multiply = function (i) {
-  countState.value = countState.value * i;
+let logFieldText = function () {
+  // Get ref value with property drilling
+  console.log(inputRef.value);
+  // Get ref value with unRef
+  console.log(unref(inputRef));
+  // Demonstrate unRef with a regular variable
+  const vari = "effervescent";
+  console.log(unref(vari));
 };
 </script>
 <template>
   <h1>{{ countState }}</h1>
   <div>
-    <button @click="countState++">Add 1</button>
-    <button @click="countState--">Minus 1</button>
-    <button @click="countState = countState - 3">Minus 3</button>
-    <button @click="double">Double</button>
-    <button @click="multiply(5)">X 5</button>
+    <button @click="logFieldText">Press to log text inside input field</button>
+    <input ref="inputRef" />
   </div>
 </template>
 
