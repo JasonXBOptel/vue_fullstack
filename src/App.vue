@@ -1,24 +1,33 @@
 <script setup>
-import { reactive } from "vue";
-// Declare Initial State Value
-const dims = reactive({
-  length: 70,
-  width: 30,
-  height: 45,
-});
+import { ref, isProxy, toRaw } from "vue";
+
+const devs = ref(["Aria", "Roland", "Jason", "Kelsey"]);
+
+const editArray = function () {
+  // Edit state array
+  devs.value[0] = "Shiho";
+  // Access updated state data immediately afterwards
+  console.log(devs.value[0]);
+};
 </script>
 <template>
-  <h1>{{ countState }}</h1>
   <div>
-    <h1>Length {{ dims.length }}</h1>
-    <h1>Width {{ dims.width }}</h1>
-    <h1>Height {{ dims.height }}</h1>
+    <!-- We need to drill into our reactive object to access width and height -->
+    <h1>EF Team: {{ devs }}</h1>
   </div>
+  <button @click="editArray">Edit first array entry</button>
 </template>
 
 <style scoped>
 div {
   display: flex;
   flex-direction: column;
+}
+section {
+  display: flex;
+  flex-direction: row;
+}
+button {
+  font-size: 1.5rem;
 }
 </style>
