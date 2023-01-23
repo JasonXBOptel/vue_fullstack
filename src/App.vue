@@ -1,24 +1,26 @@
 <script setup>
-import { ref, isProxy, toRaw } from "vue";
-
-const devs = ref(["Aria", "Roland", "Jason", "Kelsey"]);
-
-const editArray = function () {
-  // Edit state array
-  devs.value[0] = "Shiho";
-  // Access updated state data immediately afterwards
-  console.log(devs.value[0]);
-};
+// import { ref } from "vue";
+const arr = [
+  { name: "Jason", age: 26 },
+  { name: "Kelsey", age: 30 },
+  { name: "Roland", age: 32 },
+];
 </script>
 <template>
   <div>
-    <!-- We need to drill into our reactive object to access width and height -->
-    <h1>EF Team: {{ devs }}</h1>
+    <ul>
+      <li v-for="({ name, age }, index) in arr" :key="index">
+        <h4>Name: {{ name }}</h4>
+        <h6>Age: {{ age }}</h6>
+      </li>
+    </ul>
   </div>
-  <button @click="editArray">Edit first array entry</button>
 </template>
 
 <style scoped>
+li {
+  font-size: 1.5rem;
+}
 div {
   display: flex;
   flex-direction: column;
