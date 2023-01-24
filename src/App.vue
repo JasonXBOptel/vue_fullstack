@@ -1,27 +1,28 @@
 <script setup>
-// import { ref, computed } from "vue";
-// import { v4 as uuidv4 } from "uuid";
-
-const obj = {
-  name: "Spinel",
-  color: "Pink",
-  weapon: "Scythe",
-  sanity: "Low",
-};
-// console.log(crypto.randomUUID());
-// const complexLogic = function (value, property, index) {
-//   console.log([value, property, index]);
-//   return value;
-// };
+// Create pagination blocks of size 3
+// Render bullets abc def gh
+let offset1 = 0;
+let offset2 = 3;
+let offset3 = 6;
+const arr = ["a", "b", "c", "d", "e", "f", "g", "h"];
 </script>
 <template>
-  <div>
-    <ul>
-      <li v-for="(value, property, index) in obj" :key="index">
-        {{ [value, property, index] }}
-      </li>
-    </ul>
-  </div>
+  <ul>
+    <li v-for="(n, i) in 3" :key="n">
+      {{ { letter: arr[i + offset1] } }}
+    </li>
+  </ul>
+  <ul>
+    <li v-for="(n, i) in 3" :key="n">
+      {{ { letter: arr[i + offset2] } }}
+    </li>
+  </ul>
+  <ul>
+    <li v-for="(n, i) in 3" :key="n">
+      {{ { letter: arr[i + offset3] } }}
+    </li>
+  </ul>
+  <!-- </div> -->
 </template>
 
 <style scoped>
@@ -35,6 +36,12 @@ div {
 section {
   display: flex;
   flex-direction: row;
+}
+li {
+  background-color: azure;
+}
+ul {
+  margin-bottom: 3rem;
 }
 button {
   font-size: 1.5rem;
