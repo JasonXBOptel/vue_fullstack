@@ -1,25 +1,41 @@
 <script setup>
-import { ref } from "vue";
-const efDevs = ref([
-  { name: "Jason", age: 26 },
-  { name: "Kelsey", age: 29 },
-  { name: "Roland", age: 32 },
+import { ref, computed } from "vue";
+// Declare stateful array
+const cart = ref([
+  {
+    item: "Wire tray",
+    price: 26,
+  },
+  {
+    item: "USB-C adaptor",
+    price: 22,
+  },
+  {
+    item: "Extension Cable",
+    price: 14,
+  },
 ]);
-
-const mutateArray = function () {
-  // We manually redefine our stateful array using a non mutation method
-  efDevs.value = efDevs.value.filter((person) => person.age < 30);
+// Create computed value that auto-updates when cart stateful value changes
+const cartTotal = computed(() => {
+  return cart.value.reduce((acc, curr) => acc + curr.price, 0);
+});
+// Calc a value normally (no auto-updates)
+const staticCartTotal = cart.value.reduce((acc, curr) => acc + curr.price, 0);
+// Function that adds entries to the stateful array
+const addToCart = function () {
+  cart.value.push({ item: "Eraser", price: 2 });
+  console.log(cart.value);
 };
 </script>
 <template>
   <div>
-    <button @click="mutateArray">Mutate array</button>
-
     <ul>
-      <li v-for="({ name, age }, index) in efDevs" :key="index">
-        <h4>Name: {{ name }}</h4>
-        <h6>Age: {{ age }}</h6>
+      <li v-for="(entry, i) in cart" :key="i">
+        <h4>item: {{ entry.item }}</h4>
+        <h6>price: {{ entry.price }}</h6>
       </li>
+      <h2>TOTAL: {{ cartTotal }}</h2>
+      <button @click="addToCart">Add to cart</button>
     </ul>
   </div>
 </template>
