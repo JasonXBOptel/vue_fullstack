@@ -30,7 +30,7 @@ const addToCart = function () {
 <template>
   <div>
     <ul>
-      <li v-for="(entry, i) in cart" :key="i">
+      <li v-for="(entry, i) of cart" :key="i">
         <h4>item: {{ entry.item }}</h4>
         <h6>price: {{ entry.price }}</h6>
       </li>
