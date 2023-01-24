@@ -1,28 +1,19 @@
 <script setup>
-// Create pagination blocks of size 3
-// Render bullets abc def gh
-let offset1 = 0;
-let offset2 = 3;
-let offset3 = 6;
-const arr = ["a", "b", "c", "d", "e", "f", "g", "h"];
+const ef = [
+  { name: "Jason", strength: "Next.js" },
+  { name: "Kelsey", strength: "CSS" },
+  { name: "Roland", strength: "Node" },
+];
+// const renderChunks = function (i, offset) {};
 </script>
 <template>
   <ul>
-    <li v-for="(n, i) in 3" :key="n">
-      {{ { letter: arr[i + offset1] } }}
-    </li>
+    <section v-for="(profile, i) of ef" :key="i">
+      <h1 v-for="(val, property) of profile" :key="property">
+        {{ val }}
+      </h1>
+    </section>
   </ul>
-  <ul>
-    <li v-for="(n, i) in 3" :key="n">
-      {{ { letter: arr[i + offset2] } }}
-    </li>
-  </ul>
-  <ul>
-    <li v-for="(n, i) in 3" :key="n">
-      {{ { letter: arr[i + offset3] } }}
-    </li>
-  </ul>
-  <!-- </div> -->
 </template>
 
 <style scoped>
@@ -33,12 +24,9 @@ div {
   display: flex;
   flex-direction: column;
 }
-section {
-  display: flex;
-  flex-direction: row;
-}
+
 li {
-  background-color: azure;
+  background-color: rgb(150, 194, 194);
 }
 ul {
   margin-bottom: 3rem;
