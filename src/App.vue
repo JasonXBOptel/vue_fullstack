@@ -1,25 +1,22 @@
 <script setup>
 import { ref } from "vue";
-const efRef = ref([
+const efDevs = ref([
   { name: "Jason", age: 26 },
-  { name: "Kelsey", age: 30 },
+  { name: "Kelsey", age: 29 },
   { name: "Roland", age: 32 },
 ]);
 
-const extendStateArray = function () {
-  efRef.value.push({ name: "Shiho", age: 24 });
+const mutateArray = function () {
+  // We manually redefine our stateful array using a non mutation method
+  efDevs.value = efDevs.value.filter((person) => person.age < 30);
 };
 </script>
 <template>
   <div>
-    <button @click="() => efRef.push({ name: 'Shiho', age: 24 })">
-      Extend array- use ref in template block
-    </button>
-    <button @click="extendStateArray">
-      Extend array- use ref in script block
-    </button>
+    <button @click="mutateArray">Mutate array</button>
+
     <ul>
-      <li v-for="({ name, age }, index) in efRef" :key="index">
+      <li v-for="({ name, age }, index) in efDevs" :key="index">
         <h4>Name: {{ name }}</h4>
         <h6>Age: {{ age }}</h6>
       </li>
