@@ -6,19 +6,19 @@ const obj = {
   name: "Spinel",
   color: "Pink",
   weapon: "Scythe",
-  sanity: 0,
+  sanity: "Low",
 };
-console.log(crypto.randomUUID());
-const complexLogic = function (value, property) {
-  console.log([value, property]);
-  return value;
-};
+// console.log(crypto.randomUUID());
+// const complexLogic = function (value, property, index) {
+//   console.log([value, property, index]);
+//   return value;
+// };
 </script>
 <template>
   <div>
     <ul>
-      <li v-for="(value, property) of obj" :key="property">
-        {{ complexLogic(value, property) }}
+      <li v-for="(value, property, index) in obj" :key="index">
+        {{ [value, property, index] }}
       </li>
     </ul>
   </div>
