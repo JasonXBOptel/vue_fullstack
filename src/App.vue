@@ -1,37 +1,25 @@
 <script setup>
-const ef = [
-  { name: "Jason", strength: "Next.js" },
-  { name: "Kelsey", strength: "CSS" },
-  { name: "Roland", strength: "Node" },
-];
-// const renderChunks = function (i, offset) {};
+import { ref, watch } from "vue";
+// Declare stateful value, which gets changed by pressing a button
+const pageNum = ref(1);
+//! https://jsonplaceholder.typicode.com/posts/5
 </script>
+
 <template>
-  <ul>
-    <section v-for="(profile, i) of ef" :key="i">
-      <h1 v-for="(val, property) of profile" :key="property">
-        {{ val }}
-      </h1>
+  <div id="app">
+    <section>
+      <button @click="pageNum++">Increment pageNum</button>
+      <h1>API CALL RESULTS BELOW</h1>
+      <h3>State Val: {{ pageNum }}</h3>
+      <p></p>
     </section>
-  </ul>
+  </div>
 </template>
 
 <style scoped>
-li {
-  font-size: 1.5rem;
-}
-div {
-  display: flex;
-  flex-direction: column;
-}
-
-li {
-  background-color: rgb(150, 194, 194);
-}
-ul {
-  margin-bottom: 3rem;
-}
 button {
   font-size: 1.5rem;
+  margin: 1rem;
+  margin-left: 0;
 }
 </style>
