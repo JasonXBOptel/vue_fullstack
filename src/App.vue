@@ -1,21 +1,13 @@
 <script setup>
 import { ref } from "vue";
-const goBoolean = ref(true);
-
-const decideColor = () => {
-  if (goBoolean.value) return "green";
-  else return "red";
-};
-
-console.log(goBoolean);
+const imagePath = ref(
+  "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png"
+);
 </script>
 
 <template>
-  <h1>hello</h1>
+  <h1>Charmeleon!</h1>
+  <img :src="imagePath" />
 </template>
 
-<style scoped>
-h1 {
-  color: v-bind(decideColor());
-}
-</style>
+<style scoped></style>
