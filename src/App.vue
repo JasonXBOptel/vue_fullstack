@@ -1,5 +1,5 @@
 <script setup>
-import { ref, onMounted, watch } from "vue";
+import { ref, onMounted, watch, watchEffect } from "vue";
 import axios from "axios";
 // Declare stateful value, which gets changed by pressing a button
 const pageNum = ref(1);
@@ -16,15 +16,11 @@ const fetchThenUpdate = async function (num) {
   }
 };
 
-// Fetch API data on Startup then render the results
-onMounted(() => {
-  fetchThenUpdate(pageNum.value);
-});
+// Callback runs on startup by default
 // Run callback that fetches data whenever pageNum reactive value changes
-watch(pageNum, async function (newVal, oldVal) {
-  console.log([oldVal, "->", newVal]);
+watchEffect(async function () {
   try {
-    await fetchThenUpdate(pageNum.value);
+    await fetchThenUpdate(pageNum.value); // involves results reactive variable
   } catch (error) {
     console.error(error);
   }
