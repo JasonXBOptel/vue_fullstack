@@ -1,13 +1,18 @@
 <script setup>
 import { ref } from "vue";
-const imagePath = ref(
-  "https://assets.pokemon.com/assets/cms2/img/pokedex/full/005.png"
-);
+// Create a state variable to reference when using v-model
+const message = ref("");
 </script>
 
 <template>
-  <h1>Charmeleon!</h1>
-  <img :src="imagePath" />
+  <section>
+    <p>message (reactive variable): {{ message }}</p>
+    <input v-model="message" placeholder="edit me" />
+  </section>
 </template>
-
-<style scoped></style>
+<style>
+section {
+  display: flex;
+  flex-direction: column;
+}
+</style>
