@@ -4,11 +4,5 @@ import { ref } from "vue";
 const typedInput = ref(""); // default value is an empty string
 </script>
 
-<template>
-  <section>
-    <p>Reactive val: {{ typeof typedInput }}</p>
-    <input v-model.number="typedInput" placeholder="edit me" />
-  </section>
-</template>
-
+<template src="./split/template.html"></template>
 <style src="./split/style.css"></style>
