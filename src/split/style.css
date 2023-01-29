@@ -3,3 +3,7 @@ section {
   flex-direction: column;
   color: blue;
 }
+
+p {
+  color: red
+}
