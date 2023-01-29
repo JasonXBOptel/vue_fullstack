@@ -11,9 +11,4 @@ const typedInput = ref(""); // default value is an empty string
   </section>
 </template>
 
-<style scoped>
-section {
-  display: flex;
-  flex-direction: column;
-}
-</style>
+<style src="./split/style.css"></style>
