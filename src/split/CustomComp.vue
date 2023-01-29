@@ -1,15 +1,14 @@
 <script setup>
 const props = defineProps({
-  stringVal: String,
-  numVal: Number,
+  // stringVal: String,
+  // numVal: Number,
   obj: Object,
   list: Array,
 });
-console.log(props);
 </script>
 <template>
-  <div>{{ typeof props.stringVal }} : {{ props.stringVal }}</div>
-  <div>{{ typeof props.numVal }} : {{ props.numVal }}</div>
+  <!-- <div>{{ typeof props.stringVal }} : {{ props.stringVal }}</div> -->
+  <!-- <div>{{ typeof props.numVal }} : {{ props.numVal }}</div> -->
   <div>{{ typeof props.obj }} : {{ props.obj }}</div>
   <div>{{ typeof props.list }} : {{ props.list }}</div>
 </template>

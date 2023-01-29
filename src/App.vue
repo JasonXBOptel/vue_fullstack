@@ -1,4 +1,3 @@
-<!-- eslint-disable no-unused-vars -->
 <script setup>
 // import { ref } from "vue";
 import CustomComp from "./split/CustomComp.vue";
