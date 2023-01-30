@@ -1,17 +1,14 @@
 <script setup>
+import { ref } from "vue";
 import CustomComp from "./split/CustomComp.vue";
+let post = ref({
+  id: 1,
+  title: "My Journey with Vue",
+});
+let num = ref(10);
+const mutateNum = () => num.value++;
 </script>
-<!-- v-bind hardcoded non-string props -->
-<!-- If you don't specify a prop value, it get auto-set to true -->
 <template>
-  <CustomComp
-    trueVal
-    :falseVal="false"
-    :numVal="43"
-    :specificNumVal="0"
-    :nullishVal1="null"
-    :nullishVal2="undefined"
-    :dateVal="new Date()"
-  />
+  <CustomComp :post="post" :num="num" :mutateNum="mutateNum" />
 </template>
 <style src="./split/style.css"></style>
