@@ -1,14 +1,24 @@
-<script setup>
-import { ref } from "vue";
-import CustomComp from "./split/CustomComp.vue";
-let post = ref({
-  id: 1,
-  title: "My Journey with Vue",
-});
-let num = ref(10);
-const mutateNum = () => num.value++;
-</script>
-<template>
-  <CustomComp :post="post" :num="num" :mutateNum="mutateNum" />
+<template lang="">
+  <!-- Can access the state value directly in template block -->
+  <h2>Jason Stats: {{ grades }}</h2>
+  <button @click="jasonPowerup">Add entry to end</button>
+  <button @click="jasonPowerup">Remove entry from start</button>
+  <button @click="jasonPowerup">Remove second half</button>
 </template>
-<style src="./split/style.css"></style>
+<script>
+let regularVar = 9;
+export default {
+  methods: {
+    addToEnd() {},
+    removeFromStart() {},
+    halve() {},
+    calcAverage() {},
+  },
+  data() {
+    return {
+      grades: [55, 70, 90, 60, 40, 62, 65],
+    };
+  },
+};
+</script>
+<style lang=""></style>
