@@ -18,6 +18,7 @@ module.exports = {
     ecmaVersion: "latest",
   },
   rules: {
+    "no-unused-vars": "off", // place in .eslintrc.cjs, inside depth 1 of rules object
     "prettier/prettier": [
       "error",
       {
