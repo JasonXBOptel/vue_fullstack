@@ -1,32 +1,44 @@
 <script>
-import axios from "axios";
+// import axios from "axios";
 export default {
   data() {
-    return { page: 1, results: [] };
+    return {
+      name: "Jason",
+      stats: ["a", "b", "c"],
+    };
   },
-  method: {},
+  methods: {
+    shallowMutation() { this.name = "Mitch" }, // prettier-ignore
+    deepMutation() { this.stats.level++ }, // prettier-ignore
+    editList() { this.stats = [] }, // prettier-ignore
+  },
   watch: {
-    page: {
-      // run watcher on startup (like useEffect with empty dep list)
-      immediate: true,
-      // When page state value changes, fetch new data from the API
-      handler() {
-        axios
-          .get("https://jsonplaceholder.typicode.com/posts/" + this.page)
-          .then((resp) => (this.results = resp.data))
-          .catch((err) => console.error(err));
-      },
+    // Purposefully shallow watcher
+    name() {
+      console.log("Shallow name mutation made!");
     },
+    // THIS DOES NOT FIRE WHEN stats.level changes
+    stats() {
+      console.log("Shallow stats mutation made!");
+    },
+    // THIS DOES FIRE WHEN stats.level CHANGES
+    // stats: {
+    //   handler() {
+    //     console.log("Shallow or Deep stats mutation made!");
+    //   },
+    //   deep: true,
+    // },
   },
 };
 </script>
 
 <template>
   <div id="app">
-    <p>{{ results }}</p>
-    <h3>Page Number: {{ page }}</h3>
-    <button @click="page++">Page forward</button>
-    <button @click="page--">Page back</button>
+    <p>{{ name }}</p>
+    <p>{{ stats }}</p>
+    <button @click="shallowMutation">Change name (shallow)</button>
+    <button @click="editList">Extend List</button>
+    <!-- <button @click="this.name=''">Change name</button> -->
   </div>
 </template>
 <style scoped>
