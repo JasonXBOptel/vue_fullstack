@@ -1,16 +1,16 @@
 <script setup>
-// const props = defineProps({ post: Object, num: Number });
-const props = defineProps(["num", "post", "mutateNum"]);
-
-// const tryToMutatePost
+// import { toRefs } from "vue";
+// Notice how we use filteredData here in the child component
+// Not filtered-data which we used in App.vue
+const props = defineProps(["parsedData", "filteredData"]);
 </script>
 <template>
   <section>
-    <button @click="mutateNum">Try to Mutate Num</button>
-    <div>{{ typeof props.post }} : {{ props.post }}</div>
-    <div>{{ typeof props.num }} : {{ props.num }}</div>
+    <p>{{ props.parsedData }}</p>
+    <p>{{ props.filteredData }}</p>
   </section>
 </template>
+
 <!-- <style>
 
 </style> -->

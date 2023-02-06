@@ -1,14 +1,10 @@
 <script setup>
 import { ref } from "vue";
 import CustomComp from "./split/CustomComp.vue";
-let post = ref({
-  id: 1,
-  title: "My Journey with Vue",
-});
-let num = ref(10);
-const mutateNum = () => num.value++;
+let var1 = ref("Bella");
+let var2 = ref("Missy");
 </script>
 <template>
-  <CustomComp :post="post" :num="num" :mutateNum="mutateNum" />
+  <CustomComp :parsedData="var1" :filtered-data="var2" />
 </template>
 <style src="./split/style.css"></style>
