@@ -14,3 +14,4 @@ export default {
     <button @click="$emit('signalFlare', 99)">I also emit an event!</button>
   </section>
 </template>
+
