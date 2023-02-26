@@ -1,16 +1,16 @@
-<script setup>
-// import { toRefs } from "vue";
-// Notice how we use filteredData here in the child component
-// Not filtered-data which we used in App.vue
-const props = defineProps(["parsedData", "filteredData"]);
+<script>
+export default {
+  emits: ["signalFlare"],
+  methods: {
+    clickHandler() {
+      this.$emit("signalFlare", 10); // this.$emit within <script>
+    },
+  },
+};
 </script>
 <template>
   <section>
-    <p>{{ props.parsedData }}</p>
-    <p>{{ props.filteredData }}</p>
+    <button @click="clickHandler">Click me to emit an event!</button>
+    <button @click="$emit('signalFlare', 99)">I also emit an event!</button>
   </section>
 </template>
-
-<!-- <style>
-
-</style> -->

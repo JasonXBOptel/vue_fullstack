@@ -1,10 +1,19 @@
-<script setup>
-import { ref } from "vue";
+<script>
 import CustomComp from "./split/CustomComp.vue";
-let var1 = ref("Bella");
-let var2 = ref("Missy");
+export default {
+  components: { CustomComp },
+  data() {
+    return { msg: "Starting message" };
+  },
+  methods: {
+    changeMsg(n) {
+      this.msg = "Event was emitted, and passed this value: " + n;
+    },
+  },
+};
 </script>
+
 <template>
-  <CustomComp :parsedData="var1" :filtered-data="var2" />
+  <h1>{{ msg }}</h1>
+  <CustomComp @signalFlare="changeMsg" />
 </template>
-<style src="./split/style.css"></style>
