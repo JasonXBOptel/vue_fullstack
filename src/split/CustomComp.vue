@@ -1,11 +1,14 @@
+<script>
+export default {
+  data() {
+    return { titleState: "Stateful title" };
+  },
+};
+</script>
 <template>
-  <section>
-    <slot name="title"></slot>
-  </section>
-  <section>
-    <slot name="mainBody"></slot>
-  </section>
-  <section>
-    <slot name="footer"></slot>
-  </section>
+  <slot
+    v-bind:title="titleState"
+    v-bind:text="'Insert random hardcoded paragraph here'"
+  >
+  </slot>
 </template>
