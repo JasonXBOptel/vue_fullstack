@@ -1,12 +1,11 @@
-<script setup></script>
 <template>
   <section>
-    <slot>This fallback text appears if we pass no content in the slot</slot>
+    <slot name="title"></slot>
+  </section>
+  <section>
+    <slot name="mainBody"></slot>
+  </section>
+  <section>
+    <slot name="footer"></slot>
   </section>
 </template>
-
-<!-- <style scoped>
-.title {
-  color: blue;
-}
-</style> -->
