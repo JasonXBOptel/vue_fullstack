@@ -1,19 +1,13 @@
-<script>
+<script setup>
+import { ref } from "vue";
 import CustomComp from "./split/CustomComp.vue";
-export default {
-  components: { CustomComp },
-  data() {
-    return { msg: "Starting message" };
-  },
-  methods: {
-    changeMsg(n) {
-      this.msg = "Event was emitted, and passed this value: " + n;
-    },
-  },
+const msg = ref("Starting message");
+const changeMsg = function (n) {
+  msg.value = "Emitted event with this value: " + n;
 };
 </script>
 
 <template>
   <h1>{{ msg }}</h1>
-  <CustomComp @signalFlare="changeMsg" />
+  <CustomComp @signal-flare="changeMsg" />
 </template>
