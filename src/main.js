@@ -1,13 +1,16 @@
 import { createApp } from "vue";
 import { createPinia } from "pinia";
-import liteStore from "./liteStore";
 import App from "./App.vue";
 import router from "./router";
+import PrimeVue from "primevue/config";
 
 import "./assets/main.css";
+import "primevue/resources/themes/lara-light-blue/theme.css";
+import "primevue/resources/primevue.min.css";
+import "primeicons/primeicons.css";
 
 const app = createApp(App);
-app.provide("liteStore", liteStore); // make available project-wide
+app.use(PrimeVue);
 app.use(createPinia());
 app.use(router);
 

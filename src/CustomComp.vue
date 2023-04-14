@@ -1,12 +1,17 @@
 <script>
-import DeepCustomComp from "./DeepCustomComp.vue";
 export default {
-  components: { DeepCustomComp },
-  inject: ["liteStore"],
+  props: ["modelValue"],
+  emits: ["update:modelValue"],
 };
 </script>
 
 <template>
-  <p>{{ liteStore.state }}</p>
-  <DeepCustomComp />
+  <label for="fname">Text Field: </label>
+  <input
+    type="text"
+    v-bind:value="modelValue"
+    @input="$emit('update:modelValue', $event.target.value)"
+    name="fname"
+  />
+  <p>stateA value: {{ stateA }}</p>
 </template>
