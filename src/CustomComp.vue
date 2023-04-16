@@ -13,5 +13,5 @@ export default {
     @input="$emit('update:modelValue', $event.target.value)"
     name="fname"
   />
-  <p>stateA value: {{ stateA }}</p>
+  <p>stateA value: {{ modelValue }}</p>
 </template>

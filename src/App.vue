@@ -1,7 +1,11 @@
-<script setup>
+<script>
 import CustomComp from "./CustomComp.vue";
-import { ref } from "vue";
-const stateA = ref(""); // default value is an empty string
+export default {
+  components: { CustomComp },
+  data() {
+    return { stateA: "def" };
+  },
+};
 </script>
 
 <template>
